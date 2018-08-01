@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
-class App extends Component {
+import Square from './SquareComponent'
 
-  
-}
+class Board extends Component {
+  renderSquare(i) {
+    return <Square value ={i} />
+  }
 
-export default App;
+
+export default Board;
