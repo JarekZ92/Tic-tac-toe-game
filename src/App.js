@@ -1,15 +1,19 @@
 import React from "react";
-import Square from './SquareComponent'
+class Square extends React.Component {
+  render() {
+    return <button className="square">{this.props.value}</button>;
+  }
+}
 
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square value ={i} />
+    return <Square value={i} />;
   }
 
   render() {
-    const status = 'Next player: X'
+    const status = "Next player: X";
 
-    return(
+    return (
       <div>
         <div className="status">{status}</div>
         <div className="board-row">
@@ -18,18 +22,39 @@ class Board extends React.Component {
           {this.renderSquare(2)}
         </div>
         <div className="board-row">
-        {this.renderSquare(3)}
-        {this.renderSquare(4)}
-        {this.renderSquare(5)}
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
         </div>
         <div className="board-row">
-        {this.renderSquare(6)}
-        {this.renderSquare(7)}
-        {this.renderSquare(8)}
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
         </div>
       </div>
-    )
+    );
   }
+}
 
+class Game extends React.Component {
+  render() {
+      return(
+          <div className="game">
+          <div className ="game">
+          <Board />
+          </div>
+          <div className="game-info">
+          <div>{}</div>
+          <ol>{}</ol>
+          </div>
+          </div>
+      )
+  }
+}
 
-export default Board
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+)
+
+export default App;
