@@ -1,7 +1,12 @@
 import React from "react";
+import ReactDOM from 'react-dom'
+
 class Square extends React.Component {
   render() {
-    return <button className="square">{this.props.value}</button>;
+    return <button className="square"
+     onClick=
+      {function(){alert('click')}}>
+      {this.props.value}</button>;
   }
 }
 
@@ -57,4 +62,5 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-export default App;
+// export default Square
+export default Board
