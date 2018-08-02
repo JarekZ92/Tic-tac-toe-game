@@ -1,25 +1,32 @@
 import React from "react";
-import ReactDOM from 'react-dom'
-import './index.css'
+import ReactDOM from "react-dom";
+import "./index.css";
 
 class Square extends React.Component {
   constructor(props) {
-    super(props)
-    this.state ={value: null}
+    super(props);
+    this.state = { value: null };
   }
-  
+
   render() {
-    return <button className="square"
-     onClick=
-      {()=> this.setState({value: 'X'})}>
-      {this.state.value}
-      </button>;
+    return (
+      <button className="square" onClick={() => this.setState({ value: "X" })}>
+        {this.state.value}
+      </button>
+    );
   }
 }
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null)
+    };
+  }
+
   renderSquare(i) {
-    return <Square  />;
+    return <Square value={this.state.squares[i]} />;
   }
 
   render() {
@@ -50,24 +57,21 @@ class Board extends React.Component {
 
 class Game extends React.Component {
   render() {
-      return(
-          <div className="game">
-          <div className ="game">
+    return (
+      <div className="game">
+        <div className="game">
           <Board />
-          </div>
-          <div className="game-info">
+        </div>
+        <div className="game-info">
           <div>{}</div>
           <ol>{}</ol>
-          </div>
-          </div>
-      )
+        </div>
+      </div>
+    );
   }
 }
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-)
+ReactDOM.render(<Game />, document.getElementById("root"));
 
 // export default Square
-export default Board
+export default Board;
